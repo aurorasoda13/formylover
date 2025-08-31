@@ -1,5 +1,5 @@
 body {
-    background-image: url('sfondo.png'); /* Assicurati che il percorso sia corretto! */
+    background-image: url('sfondo.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -7,61 +7,62 @@ body {
     font-family: 'Georgia', serif;
     color: #333;
     margin: 0;
-    /* padding: 20px; <--- Puoi rimuovere o ridurre questo padding se vuoi che lo sfondo si estenda di più ai bordi */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-}
-
-.page-container {
-    /* Riduci la larghezza massima del contenitore della lettera */
-    max-width: 600px; /* Era 800px, ora è più stretto */
-    padding: 20px;
-}
-.letter-container {
-    background-image: url('pergamena.jpg');
-    background-size: cover;
-    background-position: center;
-    
-    /* Rendi lo sfondo più opaco. Prova con 0.8 o 0.9. */
-    background-color: rgba(255, 255, 255, 0.8);
-    
-    border: 2px solid #a38c71;
-    border-radius: 5px;
-    
-    padding: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    overflow-x: hidden; /* Evita scroll orizzontale se qualcosa esce */
 }
 
 h1 {
     font-family: 'Dancing Script', cursive;
     text-align: center;
     color: black;
-    margin-bottom: 25px;
-    /* Rendi il titolo più grande */
-    font-size: 2.0em;
-    /* Aggiungi un'ombra per farlo risaltare */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 50px; /* Aumentato il margine per separare dal tesoro */
+    font-size: 2.5em; /* Aumentato leggermente la dimensione del titolo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Assicura che il titolo sia sopra altri elementi */
 }
-p {
+
+#treasure-container {
+    position: relative; /* Rende questo contenitore il punto di riferimento per il messaggio */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente la cassa e il messaggio */
+}
+
+#treasure-chest-positioner {
+    margin-bottom: 20px; /* Spazio tra la cassa e il bigliettino */
+    /* Nessun posizionamento assoluto o trasformazione qui, è gestito dal body e da #treasure-container */
+}
+
+.message-box {
+    position: absolute; /* Ora è posizionato relativamente a #treasure-container */
+    top: 100%; /* Inizia subito sotto la cassa (al 100% dell'altezza di #treasure-chest-positioner) */
+    left: 50%;
+    transform: translateX(-50%) scale(0); /* Centra orizzontalmente e nasconde */
+    width: 500px; /* Larghezza leggermente aumentata per il bigliettino */
+    padding: 20px;
+    background-image: url('pergamena.jpg');
+    background-size: cover;
+    background-color: #f8f0e5;
+    border: 2px solid #a38c71;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.message-box.show {
+    transform: translateX(-50%) scale(1);
+    z-index: 100;
+}
+
+#random-message {
     font-family: 'Cormorant Garamond', serif;
     line-height: 1.8;
     color: black;
-    /* Aumenta leggermente la dimensione del testo */
-    font-size: 1.1em;
+    font-size: 1.2em; /* Dimensione del testo aumentata */
     font-weight: bold;
-}
-
-.treasure-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #a38c71; /* A nice, earthy brown */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center;
+    margin: 0;
 }
