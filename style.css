@@ -66,3 +66,63 @@ h1 {
     font-weight: bold;
     margin: 0;
 }
+
+.letter-container {
+    background-image: url('pergamena.jpg');
+    border: 1px solid #ddd; /* Un bordo sottile */
+    border-radius: 8px; /* Bordi leggermente arrotondati */
+    padding: 30px; /* Spazio interno per il testo */
+    margin: 40px auto; /* Centra la lettera nella pagina e aggiunge spazio sopra/sotto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Un'ombra leggera per farla risaltare */
+    max-width: 700px; /* Limita la larghezza massima per una migliore leggibilità */
+    line-height: 1.6; /* Aumenta l'interlinea per una migliore leggibilità */
+    font-family: 'Georgia', serif; /* Un font più classico per una lettera */
+    color: #333; /* Colore del testo leggermente più scuro */
+    position: relative; /* Necessario per l'effetto piega */
+}
+
+/* Aggiungiamo un piccolo effetto "piega" nell'angolo in alto a destra */
+.letter-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 25px 25px 0; /* Dimensioni della "piega" */
+    border-style: solid;
+    border-color: #e0d8c7 #e0d8c7 #fdfaf0 #fdfaf0; /* Colori per la piega */
+    display: block;
+    width: 0;
+    box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.05); /* Ombra per la piega */
+    border-radius: 0 8px 0 0; /* Arrotonda l'angolo della piega */
+}
+
+.letter-container p {
+    margin-bottom: 1em; /* Spazio tra i paragrafi */
+    text-align: justify; /* Giustifica il testo per un aspetto più ordinato */
+}
+
+.treasure-button {
+    display: inline-block; /* Rende il link un blocco per poter applicare padding e margine */
+    background-color: #d4af37; /* Colore oro */
+    color: white; /* Testo bianco */
+    padding: 15px 30px; /* Spazio interno per rendere il bottone più grande */
+    text-decoration: none; /* Rimuove la sottolineatura del link */
+    font-family: 'Dancing Script', cursive; /* Usa lo stesso font del titolo per coerenza */
+    font-size: 1.5em; /* Aumenta la dimensione del testo */
+    border: 2px solid #a38c71; /* Un bordo scuro per contrasto */
+    border-radius: 5px; /* Angoli leggermente arrotondati */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombra per dare profondità */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animazione al passaggio del mouse */
+    margin-top: 20px; /* Spazio sopra il bottone */
+    z-index: 10;
+}
+
+.treasure-button:hover {
+    transform: translateY(-2px); /* Sposta leggermente il bottone in alto al passaggio del mouse */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Aumenta l'ombra per un effetto "sollevato" */
+}
+
+.treasure-button:active {
+    transform: translateY(0); /* Ritorna alla posizione originale al click */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Ombra ridotta per un effetto "premuto" */
+}
